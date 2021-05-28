@@ -17,4 +17,4 @@
 * https://www.youtube.com/channel/UCX_b3NNQN5bzExm-22-NVVg
 
 ### Individual Package Downloads
-[GameEvents_UnityPackage_0.1.zip](https://github.com/1ukeb/GameEvents/files/6520012/GameEvents_UnityPackage_0.1.zip)
+* Events - [TinyToolsEvents_UnityPackage.zip](https://github.com/1ukeb/TinyTools/files/6559449/TinyToolsEvents_UnityPackage.zip)
