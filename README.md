@@ -4,7 +4,7 @@
 * Dynamic Audio *In Progress.
 
 ### Getting Started
-* Each tools contains a demo folder with a basic demo and instructions.
+* Each tool contains a demo folder with a basic demo and instructions.
 * Unity Version 2018.1.0f1 or higher
 
 ### Version History
