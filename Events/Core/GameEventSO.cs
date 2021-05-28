@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace GameEvents
+namespace TinyTools.Events
 {
     public abstract class GameEventSO<T> : ScriptableObject
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameEvents
+namespace TinyTools.Events
 {
     [CreateAssetMenu(menuName = "Game Events/ScriptableObject Event")]
     public class ScriptableObjectEventSO : GameEventSO<ScriptableObject> { }

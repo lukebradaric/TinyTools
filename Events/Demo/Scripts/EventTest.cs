@@ -1,5 +1,5 @@
 using UnityEngine;
-using GameEvents;
+using TinyTools.Events;
 
 // Demo to call GameEvents
 public class EventTest : MonoBehaviour

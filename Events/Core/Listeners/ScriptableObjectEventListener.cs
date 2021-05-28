@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GameEvents
+namespace TinyTools.Events
 {
     public class ScriptableObjectEventListener : GameEventListener<ScriptableObject> { }
 }

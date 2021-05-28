@@ -1,5 +1,5 @@
 using UnityEngine;
-using GameEvents;
+using TinyTools.Events;
 
 // Demo to handle GameEvents via scritp
 public class EventListenerTest : MonoBehaviour

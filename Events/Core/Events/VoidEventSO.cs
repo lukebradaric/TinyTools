@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace GameEvents
+namespace TinyTools.Events
 {
     [CreateAssetMenu(menuName = "Game Events/Void Event")]
     public class VoidEventSO : ScriptableObject
