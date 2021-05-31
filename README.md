@@ -8,6 +8,7 @@
 * Unity Version 2018.1.0f1 or higher
 
 ### Version History
+* 0.1.6 3D Audio Support
 * 0.1.5 Audio Tool
 * 0.1 Initial Release
 
