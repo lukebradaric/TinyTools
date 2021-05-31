@@ -13,7 +13,7 @@ namespace TinyTools.Audio
 
         // priority
         [Range(0,256)]
-        public float priority = 128;
+        public int priority = 128;
 
         // volume
         [Range(0, 1)]

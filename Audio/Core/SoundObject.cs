@@ -25,12 +25,13 @@ namespace TinyTools.Audio
         public AudioSource SetupAudioSource(AudioSource audioSource)
         {
             audioSource.clip = sound.clip;
+            audioSource.priority = sound.priority;
             audioSource.volume = sound.volume;
             audioSource.pitch = sound.pitch;
             audioSource.loop = sound.loop;
-            audioSource.spatialBlend =  sound.spatialBlend;
+            audioSource.spatialBlend = sound.spatialBlend;
 
-            audioSource.rolloffMode = AudioRolloffMode.Linear;
+            audioSource.rolloffMode = sound.rollOffMode;
             //audioSource.rolloffFactor
 
             // add SoundSO option
@@ -46,7 +47,7 @@ namespace TinyTools.Audio
                 return;
 
             // Random pitch within range
-            audioSource.pitch = sound.pitch + Random.Range(-sound.randomPitch, sound.randomPitch);
+            audioSource.pitch = Mathf.Clamp(sound.pitch + Random.Range(-sound.randomPitch, sound.randomPitch), -3f, 3f);
         }
 
         // returns first available audio source in audiosourcepool
