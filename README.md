@@ -17,8 +17,8 @@
 * https://www.youtube.com/channel/UCX_b3NNQN5bzExm-22-NVVg
 
 ### Package Download
-[TinyTools 0.1.6.zip](https://github.com/1ukeb/TinyTools/files/6567188/TinyTools.0.1.6.zip)
+* All Tools - [TinyTools_UnityPackage 0.1.6.zip](https://github.com/1ukeb/TinyTools/files/6567195/TinyTools_UnityPackage.0.1.6.zip)
 
 ### Individual Package Download
 * Events - [TinyToolsEvents_UnityPackage.zip](https://github.com/1ukeb/TinyTools/files/6559449/TinyToolsEvents_UnityPackage.zip)
-* Audio - [TinyToolsAudio 0.1.6.zip](https://github.com/1ukeb/TinyTools/files/6567189/TinyToolsAudio.0.1.6.zip)
+* Audio - [TinyToolsAudio_UnityPackage 0.1.6.zip](https://github.com/1ukeb/TinyTools/files/6567194/TinyToolsAudio_UnityPackage.0.1.6.zip)
