@@ -8,6 +8,10 @@ namespace TinyTools.Audio
     {
         // audio clip
         public AudioClip clip;
+        public AudioClip[] clips;
+
+        public bool useList;
+
         // mixer group
         public AudioMixerGroup audioMixerGroup = default;
 
@@ -23,17 +27,18 @@ namespace TinyTools.Audio
         [Range(-3, 3)]
         public float pitch = 1;
 
-        // should sound use random pitch
-        public bool useRandomPitch = false;
-        // random pitch rangfe
+        // variation value of random pitch
         [Range(0,1)]
-        public float randomPitch = 0.1f;
+        public float pitchVariation;
 
         // TODO:
         // play on awake
 
         // should clip loop
         public bool loop = false;
+        public bool looping = false;
+
+        public float timeBetweenLoop;
         
         // priority
 
@@ -47,7 +52,9 @@ namespace TinyTools.Audio
         // reverb zone mix
 
         // 3d sound settings
+        [Range(0,5)]
         public float dopplerLevel = 1;
+        [Range(0,360)]
         public float spread = 0;
         public AudioRolloffMode rollOffMode = AudioRolloffMode.Linear;
         public float minDistance = 1;

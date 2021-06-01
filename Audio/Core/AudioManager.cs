@@ -86,7 +86,7 @@ namespace TinyTools.Audio
 
                 // If hide game object, set hideflags
                 if (hide)
-                    soundObject.gameObject.hideFlags = HideFlags.HideAndDontSave;
+                    soundObject.gameObject.hideFlags = HideFlags.HideInHierarchy;
 
                 soundObject.Play();
 

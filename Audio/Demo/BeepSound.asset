@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: BeepSound
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
+  clips: []
+  useList: 0
   audioMixerGroup: {fileID: 0}
   priority: 128
   volume: 0.5
   pitch: 1
-  useRandomPitch: 0
-  randomPitch: 0.1
+  pitchVariation: 0
   loop: 0
+  looping: 0
   spatialBlend: 0
   dopplerLevel: 1
   spread: 0

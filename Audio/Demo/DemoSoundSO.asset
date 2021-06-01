@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: DemoSoundSO
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
+  clips:
+  - {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
+  - {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
+  - {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
+  useList: 1
   audioMixerGroup: {fileID: 0}
   priority: 128
-  volume: 0.28
-  pitch: 1.84
-  useRandomPitch: 0
-  randomPitch: 0.1
+  volume: 0.5
+  pitch: 0.6
+  pitchVariation: 0
   loop: 0
-  spatialBlend: 1
+  looping: 0
+  spatialBlend: 0
   dopplerLevel: 1
   spread: 0
   rollOffMode: 1

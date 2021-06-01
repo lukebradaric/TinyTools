@@ -2,6 +2,6 @@ using UnityEngine;
 
 namespace TinyTools.Events
 {
-    [CreateAssetMenu(menuName = "Game Events/Float Event")]
+    [CreateAssetMenu(menuName = "TinyTools/Events/Float Event")]
     public class FloatEventSO : GameEventSO<float> { }
 }

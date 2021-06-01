@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 namespace TinyTools.Audio
 {
@@ -24,11 +25,15 @@ namespace TinyTools.Audio
         // Setup an audio source from a SoundSO
         public AudioSource SetupAudioSource(AudioSource audioSource)
         {
-            audioSource.clip = sound.clip;
+            // If using list of clips, get random
+            AudioClip clip = sound.clip;
+            if(sound.useList)
+                clip = sound.clips[Random.Range(0, sound.clips.Length)];
+
+            audioSource.clip = clip;
             audioSource.priority = sound.priority;
             audioSource.volume = sound.volume;
             audioSource.pitch = sound.pitch;
-            audioSource.loop = sound.loop;
             audioSource.spatialBlend = sound.spatialBlend;
 
             audioSource.rolloffMode = sound.rollOffMode;
@@ -43,11 +48,11 @@ namespace TinyTools.Audio
         // Randomize pitch of audio source
         public void RandomizePitch(AudioSource audioSource)
         {
-            if (!sound.useRandomPitch)
+            if (sound.pitchVariation <= 0)
                 return;
 
             // Random pitch within range
-            audioSource.pitch = Mathf.Clamp(sound.pitch + Random.Range(-sound.randomPitch, sound.randomPitch), -3f, 3f);
+            audioSource.pitch = Mathf.Clamp(sound.pitch + Random.Range(-sound.pitchVariation, sound.pitchVariation), -3f, 3f);
         }
 
         // returns first available audio source in audiosourcepool
@@ -74,15 +79,27 @@ namespace TinyTools.Audio
         // Play sound from first available audio source
         public void Play()
         {
-            // If sound is set to loop, stop sound first
+            // If sound is set to loop, start loop play
             if (sound.loop)
-                Stop();
+            {
+                // enable looping and play
+                if (!sound.looping)
+                {
+                    sound.looping = true;
+                    PlayLoop();
+                }
+
+                return;
+            }
 
             // Get audio source from pool
             AudioSource audioSource = GetAudioSource();
 
             // Randomize pitch of audio source
             RandomizePitch(audioSource);
+
+            //if (sound.loop)
+            //    AsyncLoop(sound.clip.length / audioSource.pitch);
 
             // Play audio source
             audioSource.Play();
@@ -91,9 +108,47 @@ namespace TinyTools.Audio
         // Stop all audio sources on this
         public void Stop()
         {
+            // disable looping
+            sound.looping = false;
+
             // Stop all audio sources in audioSource pool
             foreach (AudioSource audioSource in audioSourcePool)
                 audioSource.Stop();
+        }
+
+        public void PlayLoop()
+        {
+            // if loop disabled, stop looping
+            if (!sound.loop)
+                sound.looping = false;
+
+            // if not looping return
+            if (!sound.looping)
+                return;
+
+            AudioSource audioSource = GetAudioSource();
+
+            // Randomize pitch of audio source
+            RandomizePitch(audioSource);
+
+            // async loop play
+            AsyncLoop(sound.clip.length / audioSource.pitch);
+
+            // Play audio source
+            audioSource.Play();
+        }
+
+        // Wait time then PlayLoop
+        async void AsyncLoop(float time)
+        {
+            int t = (int)(time * 1000);
+
+            // if time between loop, add to delay
+            if(sound.timeBetweenLoop > 0)
+                t += (int)(sound.timeBetweenLoop * 1000);
+
+            await Task.Delay(t);
+            PlayLoop();
         }
     }
 }
