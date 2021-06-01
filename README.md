@@ -1,7 +1,7 @@
 # TinyTools
-* Lightweight collection of easy to use Unity tools.
-* Scriptable Events.
-* Dynamic Audio *In Progress.
+* Lightweight collection of easy to use Unity tools
+* Scriptable Events
+* Dynamic Audio System
 
 ### Getting Started
 * Each tool contains a demo folder with a basic demo and instructions.
