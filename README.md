@@ -16,9 +16,6 @@
 * https://github.com/DapperDino/Dapper-Tools
 * https://www.youtube.com/channel/UCX_b3NNQN5bzExm-22-NVVg
 
-### Package Download
-* All Tools - [TinyTools_UnityPackage 0.2.zip](https://github.com/1ukeb/TinyTools/files/6574462/TinyTools_UnityPackage.0.2.zip)
-
 ### Individual Package Download
 * Events - [TinyToolsEvents_UnityPackage 0.2.zip](https://github.com/1ukeb/TinyTools/files/6574465/TinyToolsEvents_UnityPackage.0.2.zip)
-* Audio - [TinyToolsAudio_UnityPackage 0.2.zip](https://github.com/1ukeb/TinyTools/files/6574468/TinyToolsAudio_UnityPackage.0.2.zip)
+* Audio - [TinyToolsAudio_UnityPackage 0.2.zip](https://github.com/1ukeb/TinyTools/files/6603224/TinyToolsAudio_UnityPackage.0.2.zip)
