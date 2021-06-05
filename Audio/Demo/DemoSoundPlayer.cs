@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-#if UNITY_EDITOR
 using UnityEngine;
-#endif
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using TinyTools.Audio;
 
 public class DemoSoundPlayer : MonoBehaviour

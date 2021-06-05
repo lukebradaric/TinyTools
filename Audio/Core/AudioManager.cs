@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 namespace TinyTools.Audio
 {
@@ -13,18 +15,22 @@ namespace TinyTools.Audio
         // Clear soundObjects on playmodechange & level loaded
         static AudioManager()
         {
-            EditorApplication.playModeStateChanged += HandlePlayModeState;
             SceneManager.sceneLoaded += HandleSceneLoaded;
+#if UNITY_EDITOR
+            EditorApplication.playModeStateChanged += HandlePlayModeState;
+#endif
         }
 
+#if UNITY_EDITOR
         // Clear soundObjects when changing edit/play mode
         private static void HandlePlayModeState(PlayModeStateChange state) => ClearSoundObjects();
-        // Clear soundObjects when loading scenes
-        private static void HandleSceneLoaded(Scene scene, LoadSceneMode mode) => ClearSoundObjects();
-
         // Delete old soundObjects after scripts compile
         [UnityEditor.Callbacks.DidReloadScripts]
         private static void OnScriptsReloaded() => DeleteOldSoundObjects();
+#endif
+
+        // Clear soundObjects when loading scenes
+        private static void HandleSceneLoaded(Scene scene, LoadSceneMode mode) => ClearSoundObjects();
 
         // Removes a SoundObject from dictionary
         public static void RemoveSoundObject(SoundObject soundObject) => soundObjects.Remove(soundObject.GetSound());
@@ -67,6 +73,12 @@ namespace TinyTools.Audio
         // Play SoundSO with position
         public static SoundObject PlaySoundSO(SoundSO sound, Vector3 position, bool hide = false)
         {
+            if (sound.clip == null)
+            {
+                Debug.LogError("Missing required AudioClip: " + sound.name);
+                return null;
+            }
+
             // If dictionary contains soundObject for sound, find it and play
             if (soundObjects.ContainsKey(sound))
             {

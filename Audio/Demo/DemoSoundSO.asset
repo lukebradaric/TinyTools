@@ -15,16 +15,16 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
   clips:
   - {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
-  - {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
-  - {fileID: 8300000, guid: e9a5b8fb1d4d3344a81e919860287f1c, type: 3}
-  useList: 1
+  - {fileID: 8300000, guid: f503dcc372132d3489bd6063642ab12e, type: 3}
+  useList: 0
   audioMixerGroup: {fileID: 0}
   priority: 128
   volume: 0.5
-  pitch: 0.6
-  pitchVariation: 0
-  loop: 0
+  pitch: 1.06
+  pitchVariation: 0.2
+  loop: 1
   looping: 0
+  timeBetweenLoop: 0.5
   spatialBlend: 0
   dopplerLevel: 1
   spread: 0

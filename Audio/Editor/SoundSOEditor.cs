@@ -20,10 +20,10 @@ namespace TinyTools.Audio
             switch (tab)
             {
                 case 0:
-                    DrawBaseGUI(sound);
+                    DrawSettingsGUI(sound);
                     break;
                 case 1:
-                    Draw3DGUI();
+                    Draw3DSettingsGUI();
                     break;
             }
 
@@ -39,7 +39,7 @@ namespace TinyTools.Audio
             serializedObject.ApplyModifiedProperties();
         }
 
-        private void DrawBaseGUI(SoundSO sound)
+        private void DrawSettingsGUI(SoundSO sound)
         {
             // Draw clip fields
             DrawClip(sound);
@@ -76,6 +76,20 @@ namespace TinyTools.Audio
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("timeBetweenLoop"));
         }
 
+        private void Draw3DSettingsGUI()
+        {
+            // Spatial blend
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spatialBlend"));
+            DrawSliderLabel("2D", "3D");
+
+            // Fields
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("dopplerLevel"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spread"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("rollOffMode"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("minDistance"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("maxDistance"));
+        }
+
         // Draw list or single clip(s)
         private void DrawClip(SoundSO sound)
         {
@@ -99,20 +113,6 @@ namespace TinyTools.Audio
 
             // end horizontal line
             GUILayout.EndHorizontal();
-        }
-
-        private void Draw3DGUI()
-        {
-            // Spatial blend
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("spatialBlend"));
-            DrawSliderLabel("2D", "3D");
-
-            // Fields
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("dopplerLevel"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("spread"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("rollOffMode"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("minDistance"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("maxDistance"));
         }
 
         // Draw a label below a slider field
