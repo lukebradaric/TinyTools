@@ -21,13 +21,13 @@ namespace TinyTools.Audio
 #endif
         }
 
-#if UNITY_EDITOR
-        // Clear soundObjects when changing edit/play mode
-        private static void HandlePlayModeState(PlayModeStateChange state) => ClearSoundObjects();
-        // Delete old soundObjects after scripts compile
-        [UnityEditor.Callbacks.DidReloadScripts]
-        private static void OnScriptsReloaded() => DeleteOldSoundObjects();
-#endif
+//#if UNITY_EDITOR
+//        // Clear soundObjects when changing edit/play mode
+//        private static void HandlePlayModeState(PlayModeStateChange state) => ClearSoundObjects();
+//        // Delete old soundObjects after scripts compile
+//        [UnityEditor.Callbacks.DidReloadScripts]
+//        private static void OnScriptsReloaded() => DeleteOldSoundObjects();
+//#endif
 
         // Clear soundObjects when loading scenes
         private static void HandleSceneLoaded(Scene scene, LoadSceneMode mode) => ClearSoundObjects();
@@ -38,15 +38,19 @@ namespace TinyTools.Audio
         // Delete all soundObjects and clear dictionary
         public static void ClearSoundObjects()
         {
-            // Destroy each soundObject that still exists
-            foreach (KeyValuePair<SoundSO, SoundObject> obj in soundObjects)
+            try
             {
-                if (obj.Value != null)
+                // Destroy each soundObject that still exists
+                foreach (KeyValuePair<SoundSO, SoundObject> obj in soundObjects)
                 {
-                    GameObject.DestroyImmediate(obj.Value.gameObject);
-                    continue;
+                    if (obj.Value != null)
+                    {
+                        GameObject.DestroyImmediate(obj.Value.gameObject);
+                        continue;
+                    }
                 }
             }
+            catch (Exception e) { }
 
             soundObjects.Clear();
         }
@@ -54,14 +58,18 @@ namespace TinyTools.Audio
         // Delete old soundObjects left in scene after scripts compile
         public static void DeleteOldSoundObjects()
         {
-            // Get list of objects
-            SoundObject[] oldSoundObjects = GameObject.FindObjectsOfType<SoundObject>();
-            if (oldSoundObjects.Length > 0)
+            try
             {
-                // Delete each object
-                foreach (SoundObject soundObject in oldSoundObjects)
-                    GameObject.DestroyImmediate(soundObject.gameObject);
+                // Get list of objects
+                SoundObject[] oldSoundObjects = GameObject.FindObjectsOfType<SoundObject>();
+                if (oldSoundObjects.Length > 0)
+                {
+                    // Delete each object
+                    foreach (SoundObject soundObject in oldSoundObjects)
+                        GameObject.DestroyImmediate(soundObject.gameObject);
+                }
             }
+            catch (Exception e) { }
         }
 
         // Play SoundSO without position
