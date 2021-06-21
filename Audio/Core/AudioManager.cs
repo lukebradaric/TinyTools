@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -16,9 +17,9 @@ namespace TinyTools.Audio
         static AudioManager()
         {
             SceneManager.sceneLoaded += HandleSceneLoaded;
-#if UNITY_EDITOR
-            EditorApplication.playModeStateChanged += HandlePlayModeState;
-#endif
+//#if UNITY_EDITOR
+//            EditorApplication.playModeStateChanged += HandlePlayModeState;
+//#endif
         }
 
 //#if UNITY_EDITOR
