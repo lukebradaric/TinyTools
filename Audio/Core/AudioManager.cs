@@ -34,7 +34,14 @@ namespace TinyTools.Audio
         private static void HandleSceneLoaded(Scene scene, LoadSceneMode mode) => ClearSoundObjects();
 
         // Removes a SoundObject from dictionary
-        public static void RemoveSoundObject(SoundObject soundObject) => soundObjects.Remove(soundObject.GetSound());
+        public static void RemoveSoundObject(SoundObject soundObject)
+        {
+            try
+            {
+                soundObjects.Remove(soundObject.GetSound());
+            }
+            catch (Exception e) { }
+        }
 
         // Delete all soundObjects and clear dictionary
         public static void ClearSoundObjects()
