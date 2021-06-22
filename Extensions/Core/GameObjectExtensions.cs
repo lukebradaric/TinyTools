@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace TinyTools.Extensions
 {
+    // Inspired from: 
+    // https://github.com/DapperDino/Dapper-Tools/blob/master/Runtime/Extensions/ListExtensions.cs
+    
     public static class GameObjectExtensions
     {
         /// <summary>
