@@ -17,18 +17,17 @@ namespace TinyTools.Audio
         static AudioManager()
         {
             SceneManager.sceneLoaded += HandleSceneLoaded;
-//#if UNITY_EDITOR
-//            EditorApplication.playModeStateChanged += HandlePlayModeState;
-//#endif
+#if UNITY_EDITOR
+            EditorApplication.playModeStateChanged += HandlePlayModeState;
+#endif
         }
 
-//#if UNITY_EDITOR
-//        // Clear soundObjects when changing edit/play mode
-//        private static void HandlePlayModeState(PlayModeStateChange state) => ClearSoundObjects();
-//        // Delete old soundObjects after scripts compile
-//        [UnityEditor.Callbacks.DidReloadScripts]
-//        private static void OnScriptsReloaded() => DeleteOldSoundObjects();
-//#endif
+#if UNITY_EDITOR
+        // Clear soundObjects when changing edit/play mode
+        private static void HandlePlayModeState(PlayModeStateChange state) => ClearSoundObjects();       // Delete old soundObjects after scripts compile
+        [UnityEditor.Callbacks.DidReloadScripts]
+        private static void OnScriptsReloaded() => DeleteOldSoundObjects();
+#endif
 
         // Clear soundObjects when loading scenes
         private static void HandleSceneLoaded(Scene scene, LoadSceneMode mode) => ClearSoundObjects();

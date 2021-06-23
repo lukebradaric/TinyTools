@@ -20,14 +20,18 @@ namespace TinyTools.Audio
         public SoundSO GetSound() => this.sound;
 
         // Remove this from AudioManager when destroyed
-        private void OnDisable() => AudioManager.RemoveSoundObject(this);
+        private void OnDisable()
+        {
+            Stop();
+            AudioManager.RemoveSoundObject(this);
+        }
 
         // Setup an audio source from a SoundSO
         public AudioSource SetupAudioSource(AudioSource audioSource)
         {
             // If using list of clips, get random
             AudioClip clip = sound.clip;
-            if(sound.useList)
+            if (sound.useList)
                 clip = sound.clips[Random.Range(0, sound.clips.Length)];
 
             audioSource.clip = clip;
@@ -60,6 +64,9 @@ namespace TinyTools.Audio
         {
             foreach (AudioSource audioSource in audioSourcePool)
             {
+                if (audioSource == null)
+                    continue;
+
                 // If audio source not playing, return it as available
                 if (!audioSource.isPlaying)
                     return SetupAudioSource(audioSource);
@@ -128,6 +135,9 @@ namespace TinyTools.Audio
 
             AudioSource audioSource = GetAudioSource();
 
+            if (audioSource == null)
+                return;
+
             // Randomize pitch of audio source
             RandomizePitch(audioSource);
 
@@ -144,7 +154,7 @@ namespace TinyTools.Audio
             int t = (int)(time * 1000);
 
             // if time between loop, add to delay
-            if(sound.timeBetweenLoop > 0)
+            if (sound.timeBetweenLoop > 0)
                 t += (int)(sound.timeBetweenLoop * 1000);
 
             await Task.Delay(t);
