@@ -1,46 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 using TinyTools.Audio;
 
 public class DemoSoundPlayer : MonoBehaviour
 {
-    // public SoundSO variable to be played
-    public SoundSO demoSound;
+    // sound we are going to play
+    public Sound demoSound;
 
-    public Vector3 playPosition;
+    // desc
+    [TextArea]
+    public string text;
 
-    public void PlaySound()
+    void Update()
     {
-        if (playPosition != Vector3.zero)
-        {
-            demoSound.Play(playPosition);
-            return;
-        }
-
-        // How to play SoundSO via code
-        demoSound.Play();
+        // play sound when hitting g key
+        if (Input.GetKeyDown("g"))
+            demoSound.Play();
     }
 }
-
-// Custom editor to add button to play sound in Inspector
-#if UNITY_EDITOR
-[CustomEditor(typeof(DemoSoundPlayer))]
-public class DemoPlaySoundEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-
-        DemoSoundPlayer demoPlaySound = (DemoSoundPlayer)target;
-
-        if (GUILayout.Button("Demo Sound"))
-        {
-            demoPlaySound.PlaySound();
-        }
-    }
-}
-#endif
