@@ -1,5 +1,7 @@
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TinyTools.Audio
 {
@@ -15,7 +17,11 @@ namespace TinyTools.Audio
 
         static SoundManager()
         {
+            // Clear soundObjects when changing playmode
             EditorApplication.playModeStateChanged += HandlePlayModeChanged;
+
+            // Clear soundObjects when changing scenes
+            EditorSceneManager.sceneClosing += HandleSceneClosing;
         }
 
         private static void HandlePlayModeChanged(PlayModeStateChange state)
@@ -23,19 +29,22 @@ namespace TinyTools.Audio
             switch (state)
             {
                 case PlayModeStateChange.ExitingEditMode:
-
-                    foreach (SoundObject soundObject in GameObject.FindObjectsOfType<SoundObject>())
-                        GameObject.DestroyImmediate(soundObject.gameObject);
-
-                    SoundObjectPool.Clear();
-
+                    ClearAll();
                     break;
                 case PlayModeStateChange.ExitingPlayMode:
-
                     SoundObjectPool.Clear();
-
                     break;
             }
+        }
+
+        private static void HandleSceneClosing(Scene scene, bool removingScene) => ClearAll();
+
+        private static void ClearAll()
+        {
+            foreach (SoundObject soundObject in GameObject.FindObjectsOfType<SoundObject>())
+                GameObject.DestroyImmediate(soundObject.gameObject);
+
+            SoundObjectPool.Clear();
         }
 
         public static void Play(Sound sound)
