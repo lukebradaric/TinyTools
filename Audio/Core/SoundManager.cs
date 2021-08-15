@@ -1,11 +1,16 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
+#endif
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace TinyTools.Audio
 {
+#if UNITY_EDITOR
     [InitializeOnLoadAttribute]
+#endif
     public static class SoundManager
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -15,6 +20,8 @@ namespace TinyTools.Audio
             SoundObjectPool.Prewarm(20);
         }
 
+        // Editor only code
+#if UNITY_EDITOR
         static SoundManager()
         {
             // Clear soundObjects when changing playmode
@@ -36,6 +43,7 @@ namespace TinyTools.Audio
                     break;
             }
         }
+#endif
 
         private static void HandleSceneClosing(Scene scene, bool removingScene) => ClearAll();
 
