@@ -1,10 +1,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.SceneManagement;
 #endif
-
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace TinyTools.Audio
 {
@@ -26,9 +23,6 @@ namespace TinyTools.Audio
         {
             // Clear soundObjects when changing playmode
             EditorApplication.playModeStateChanged += HandlePlayModeChanged;
-
-            // Clear soundObjects when changing scenes
-            EditorSceneManager.sceneClosing += HandleSceneClosing;
         }
 
         private static void HandlePlayModeChanged(PlayModeStateChange state)
@@ -44,8 +38,6 @@ namespace TinyTools.Audio
             }
         }
 #endif
-
-        private static void HandleSceneClosing(Scene scene, bool removingScene) => ClearAll();
 
         private static void ClearAll()
         {
