@@ -15,8 +15,9 @@ namespace TinyTools.Audio
 
             if (soundObjectParent != null)
                 soundObject.transform.parent = soundObjectParent;
-
-            GameObject.DontDestroyOnLoad(soundObject.gameObject);
+            
+            if(Application.isPlaying)
+                GameObject.DontDestroyOnLoad(soundObject.gameObject);
 
             return soundObject;
         }
