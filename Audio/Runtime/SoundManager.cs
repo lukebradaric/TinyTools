@@ -1,11 +1,13 @@
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace TinyTools.Audio
 {
+#if UNITY_EDITOR
     [InitializeOnLoadAttribute]
+#endif
     public static class SoundManager
     {
         private static SoundSettings soundSettings;
@@ -19,13 +21,12 @@ namespace TinyTools.Audio
             SoundObjectPool.Prewarm(soundSettings.SoundPoolSize);
         }
 
+        // Editor only code
+#if UNITY_EDITOR
         static SoundManager()
         {
             // Clear soundObjects when changing playmode
             EditorApplication.playModeStateChanged += HandlePlayModeChanged;
-
-            // Clear soundObjects when changing scenes
-            EditorSceneManager.sceneClosing += HandleSceneClosing;
         }
 
         private static void HandlePlayModeChanged(PlayModeStateChange state)
@@ -40,8 +41,7 @@ namespace TinyTools.Audio
                     break;
             }
         }
-
-        private static void HandleSceneClosing(Scene scene, bool removingScene) => ClearAll();
+#endif
 
         private static void ClearAll()
         {
