@@ -8,11 +8,15 @@ namespace TinyTools.Audio
     [InitializeOnLoadAttribute]
     public static class SoundManager
     {
+        private static SoundSettings soundSettings;
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void Init()
         {
-            // prewarm soundobjectpool with 20 sound objects
-            SoundObjectPool.Prewarm(20);
+            if (!soundSettings)
+                soundSettings = Resources.Load("SoundSettings") as SoundSettings;
+
+            SoundObjectPool.Prewarm(soundSettings.SoundPoolSize);
         }
 
         static SoundManager()
