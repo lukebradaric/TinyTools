@@ -1,6 +1,5 @@
-![TinyTools_Banner](https://user-images.githubusercontent.com/49044096/137410603-8a9b9335-4e5e-43ba-9cb2-17d0c5b9ccfd.png)
+![TinyTools_Banner_Thin](https://user-images.githubusercontent.com/49044096/137410737-378af617-22de-4df8-8daa-1a693997b752.png)
 
-# TinyTools
 * Lightweight collection of easy to use Unity tools
 * Scriptable Events
 * Dynamic Audio System
