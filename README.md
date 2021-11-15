@@ -11,11 +11,12 @@
 * Unity Version 2018.1.0f1 or higher
 
 ### Version History
-* 1.1 CameraShake Component Added
-* 1.0 Audio System Reworked
-* 0.3 Extensions Added
-* 0.2 Audio System Added
-* 0.1 Initial Release
+* 1.5 Gizmos & Extras Added
+* 1.4 CameraShake Component Added
+* 1.3 Audio System Reworked
+* 1.2 Extensions Added
+* 1.1 Audio System Added
+* 1.0 Initial Release
 
 ### Acknowledgments
 
@@ -23,5 +24,5 @@
 * https://www.youtube.com/channel/UCX_b3NNQN5bzExm-22-NVVg
 
 ### Unity Package Download
-[TinyTools_1.1 UnityPackage.zip](https://github.com/1ukeb/TinyTools/files/6910456/TinyTools_1.1.UnityPackage.zip)
+[TinyTools_1.5.0 UnityPackage.zip](https://github.com/lukebradaric/TinyTools/files/7431400/TinyTools_1.5.0.UnityPackage.zip)
 Stars are appreciated :smile:
