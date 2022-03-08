@@ -11,6 +11,7 @@
 * Unity Version 2018.1.0f1 or higher
 
 ### Version History
+* 1.6 Logging Added
 * 1.5 Gizmos & Extras Added
 * 1.4 CameraShake Component Added
 * 1.3 Audio System Reworked
