@@ -1,2 +1,0 @@
-The LoggerGroup is an additional feature that allows for toggling multiple loggers at once.
-Simply place a Logger inside of a LoggerGroup, and its enabled value will match that of the LoggerGroup.
