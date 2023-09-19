@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TinyTools.ScriptableEvents
 {
-    public abstract class BaseScriptableEvent<T> : BaseScriptableEvent
+    public abstract class ScriptableEvent<T> : ScriptableEvent
     {
         public void Raise(T value)
         {
@@ -15,11 +15,11 @@ namespace TinyTools.ScriptableEvents
         }
     }
 
-    public abstract class BaseScriptableEvent : ScriptableObject
+    public abstract class ScriptableEvent : ScriptableObject
     {
-        [TextArea]
-        [Tooltip("What is this ScriptableEvent used for?")]
-        [SerializeField] private string _description;
+        [Space]
+        [Header("Options")]
+        [TextArea][SerializeField] private string _description;
 
         protected readonly List<Action<object>> _listeners = new List<Action<object>>();
 

@@ -1,3 +1,14 @@
 {
-	"name": "TinyTools.ScriptableEvents"
+    "name": "TinyTools.ScriptableEvents",
+    "rootNamespace": "TinyTools.ScriptableEvents",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

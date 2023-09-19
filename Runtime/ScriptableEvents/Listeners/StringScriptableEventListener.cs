@@ -1,4 +1,4 @@
 namespace TinyTools.ScriptableEvents
 {
-    public class StringScriptableEventListener : BaseScriptableEventListener<string, StringScriptableEvent> { }
+    public class StringScriptableEventListener : ScriptableEventListener<string, StringScriptableEvent> { }
 }

@@ -1,4 +1,4 @@
 namespace TinyTools.ScriptableEvents
 {
-    public class BoolScriptableEventListener : BaseScriptableEventListener<bool, BoolScriptableEvent> { }
+    public class BoolScriptableEventListener : ScriptableEventListener<bool, BoolScriptableEvent> { }
 }

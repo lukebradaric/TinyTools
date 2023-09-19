@@ -1,6 +1,6 @@
 {
-    "name": "TinyTools.AutoLoad",
-    "rootNamespace": "TinyTools.AutoLoad",
+    "name": "TinyTools.ScriptableVariables",
+    "rootNamespace": "TinyTools.ScriptableVariables",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
