@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace TinyTools.ScriptableEvents
 {
-    public abstract class BaseScriptableEventListener<T, TEvent> : MonoBehaviour where TEvent : BaseScriptableEvent
+    public abstract class ScriptableEventListener<T, TEvent> : MonoBehaviour where TEvent : ScriptableEvent
     {
         [SerializeField] private TEvent _scriptableEvent;
         [SerializeField] protected UnityEvent<T> _onRaised;

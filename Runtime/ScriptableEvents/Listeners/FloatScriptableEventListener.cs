@@ -1,4 +1,4 @@
 namespace TinyTools.ScriptableEvents
 {
-    public class FloatScriptableEventListener : BaseScriptableEventListener<float, FloatScriptableEvent> { }
+    public class FloatScriptableEventListener : ScriptableEventListener<float, FloatScriptableEvent> { }
 }
