@@ -1,0 +1,16 @@
+{
+    "name": "TinyTools.ScriptableSounds.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:57930f98f8571434a93c5f58ce24c3c9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
