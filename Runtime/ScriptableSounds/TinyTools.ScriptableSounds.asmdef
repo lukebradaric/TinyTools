@@ -1,0 +1,17 @@
+{
+    "name": "TinyTools.ScriptableSounds",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2b0937f156d25dd41b509572e1b571d9",
+        "GUID:f30f8d3ca03969a4382346f92b7a8b36"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
