@@ -5,12 +5,6 @@ namespace TinyTools.ScriptableSounds
 {
     internal class ScriptableSoundObject : MonoBehaviour
     {
-        /// <summary>
-        /// Small buffer added to audio playtime before returning to pool.
-        /// Prevents audio from cutting off before it has finished playing.
-        /// </summary>
-        public const float AudioPlaytimeBuffer = 0.1f;
-
         private AudioSource _audioSource;
 
         public void Load(ScriptableSound scriptableSound)
@@ -43,7 +37,7 @@ namespace TinyTools.ScriptableSounds
 
         private IEnumerator ReleaseCoroutine()
         {
-            yield return new WaitForSeconds((_audioSource.clip.length / _audioSource.pitch) + AudioPlaytimeBuffer);
+            yield return new WaitForSeconds((_audioSource.clip.length / _audioSource.pitch) + ScriptableSoundManager.Settings.AudioPlaytimeBuffer);
 
             ScriptableSoundManager.Release(this);
         }
