@@ -1,3 +1,7 @@
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using UnityEngine;
 
 namespace TinyTools.Core
@@ -22,12 +26,40 @@ namespace TinyTools.Core
         {
             TinyToolsSettings settings = Resources.Load<TinyToolsSettings>(nameof(TinyToolsSettings));
 
-            if(settings == null)
+#if UNITY_EDITOR
+            if (settings == null)
+            {
+                settings = GetOrCreateSettings();
+            }
+#endif
+
+            if (settings == null)
             {
                 Debug.LogError($"Unable to load TinyToolsSettings! Is the file in the correct path? {TinyToolsConstants.SettingsFilePath}");
             }
 
             return settings;
         }
+
+#if UNITY_EDITOR
+        public static TinyToolsSettings GetOrCreateSettings()
+        {
+            TinyToolsSettings settings = AssetDatabase.LoadAssetAtPath<TinyToolsSettings>(TinyToolsConstants.SettingsFilePath);
+
+            if (settings == null)
+            {
+                if (!AssetDatabase.IsValidFolder(TinyToolsConstants.SettingsFolderPath))
+                {
+                    AssetDatabase.CreateFolder("Assets", TinyToolsConstants.SettingsFolder);
+                }
+
+                settings = ScriptableObject.CreateInstance<TinyToolsSettings>();
+                AssetDatabase.CreateAsset(settings, TinyToolsConstants.SettingsFilePath);
+                AssetDatabase.SaveAssets();
+            }
+
+            return settings;
+        }
+#endif
     }
 }

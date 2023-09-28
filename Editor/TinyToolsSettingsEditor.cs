@@ -1,36 +1,16 @@
 using System.Collections.Generic;
 using TinyTools.Core;
 using UnityEditor;
-using UnityEngine;
 
 namespace TinyTools.Editor
 {
     internal static class TinyToolsSettingsEditor
     {
-        internal static TinyToolsSettings GetOrCreateSettings()
-        {
-            TinyToolsSettings settings = AssetDatabase.LoadAssetAtPath<TinyToolsSettings>(TinyToolsConstants.SettingsFilePath);
-
-            if (settings == null)
-            {
-                if (!AssetDatabase.IsValidFolder(TinyToolsConstants.SettingsFolderPath))
-                {
-                    AssetDatabase.CreateFolder("Assets", TinyToolsConstants.SettingsFolder);
-                }
-
-                settings = ScriptableObject.CreateInstance<TinyToolsSettings>();
-                AssetDatabase.CreateAsset(settings, TinyToolsConstants.SettingsFilePath);
-                AssetDatabase.SaveAssets();
-            }
-
-            return settings;
-        }
-
         [SettingsProvider]
         public static SettingsProvider CreateTinyToolsSettingsProvider()
         {
             HashSet<string> propertyNames = new HashSet<string>();
-            var settings = new SerializedObject(GetOrCreateSettings());
+            var settings = new SerializedObject(TinyToolsSettings.GetOrCreateSettings());
             SerializedProperty property = settings.GetIterator();
             while (property.NextVisible(true))
             {
