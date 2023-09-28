@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TinyTools
+namespace TinyTools.Generics
 {
     public class WeightedList<T>
     {

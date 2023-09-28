@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TinyTools
+namespace TinyTools.Extensions
 {
     public static class ScriptableObjectExtensions
     {

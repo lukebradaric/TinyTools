@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TinyTools
+namespace TinyTools.Extensions
 {
     public static class ListExtensions
     {

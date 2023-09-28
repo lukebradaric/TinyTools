@@ -1,0 +1,18 @@
+{
+    "name": "TinyTools.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:51407e3aa60f0aa46ab8b65c62cdf474"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

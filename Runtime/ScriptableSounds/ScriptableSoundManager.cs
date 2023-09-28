@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TinyTools.AutoLoad;
+using TinyTools.Core;
 using TinyTools.Generics;
 using UnityEngine;
 
@@ -9,7 +10,17 @@ namespace TinyTools.ScriptableSounds
     [AutoLoad]
     internal class ScriptableSoundManager : Singleton<ScriptableSoundManager>
     {
-        public static ScriptableSoundSettings Settings { get; private set; }
+        private static TinyToolsSettings _settings;
+        public static TinyToolsSettings Settings
+        {
+            get
+            {
+                if (_settings == null)
+                    _settings = TinyToolsSettings.LoadSettings();
+
+                return _settings;
+            }
+        }
 
         private static ScriptableSoundPool _scriptableSoundPool = new ScriptableSoundPool();
 
@@ -18,8 +29,6 @@ namespace TinyTools.ScriptableSounds
         protected override void Awake()
         {
             base.Awake();
-
-            Settings = Resources.Load<ScriptableSoundSettings>("ScriptableSounds/ScriptableSoundSettings");
 
             if (Settings.EnablePlayRateLimit)
             {
@@ -40,7 +49,7 @@ namespace TinyTools.ScriptableSounds
                 return;
             }
 
-            if (Settings.EnablePlayRateLimit)
+            if (Settings.EnablePlayRateLimit && !editorOnly)
             {
                 // If sound doesn't ignore play rate limit and is found in the current limits, return
                 if (!scriptableSound.IgnorePlayRateLimit && _playRateLimits.Contains(scriptableSound))
