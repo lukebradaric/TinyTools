@@ -1,0 +1,20 @@
+{
+  "name": "com.lukebradaric.tinytools",
+  "version": "2.0.0",
+  "displayName": "TinyTools",
+  "description": "Lightweight collection of easy to use Unity tools.",
+  "unity": "2018.1",
+  "documentationUrl": "https://github.com/lukebradaric/TinyTools",
+  "changelogUrl": "https://github.com/lukebradaric/TinyTools/releases",
+  "licensesUrl": "https://github.com/lukebradaric/TinyTools/blob/main/LICENSE",
+  "keywords": [
+    "tools",
+    "lightweight",
+    "easy"
+  ],
+  "author": {
+    "name": "Luke Bradaric",
+    "email": "lukebradaric@gmail.com",
+    "url": "https://lukebradaric.com/"
+  }
+}
