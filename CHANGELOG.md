@@ -1,5 +1,15 @@
 #Changelog
 
+## v2.0 - 28-9-2023
+
+- Scriptable Sounds
+- Scriptable Events
+- Scriptable Variables
+- AutoLoad Attribute
+- Various Extension Methods
+- Various Generic Classes
+- Complete Rework!
+
 ## v1.5.2 - 14-11-2021
 
 - Added Logging tool
