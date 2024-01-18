@@ -14,11 +14,7 @@ namespace TinyTools.ScriptableSounds
                 _audioSource = gameObject.AddComponent<AudioSource>();
             }
 
-            if (_audioSource.outputAudioMixerGroup != null)
-            {
-                _audioSource.outputAudioMixerGroup = scriptableSound.AudioMixerGroup;
-            }
-
+            _audioSource.outputAudioMixerGroup = scriptableSound.AudioMixerGroup;
             _audioSource.clip = scriptableSound.AudioClip;
             _audioSource.priority = (int)scriptableSound.AudioPriority;
             _audioSource.volume = scriptableSound.Volume;
